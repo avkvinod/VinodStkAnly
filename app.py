@@ -121,11 +121,6 @@ if st.button("Generate Analysis"):
                 # Fetch Market Data via yfinance
                 ticker = yf.Ticker(selected_stock)
 
-                # Fetch Market Data via yfinance (letting the library handle the session natively)
-                ticker = yf.Ticker(selected_stock)
-                
-                # Fetch Market Data using the disguised session
-                ticker = yf.Ticker(selected_stock, session=session)
                 
                 # We pull different data scopes based on the model to optimize token usage
                 if "Fundamentals" in model_choice or "Risk" in model_choice:
