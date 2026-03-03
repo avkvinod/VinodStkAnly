@@ -121,11 +121,8 @@ if st.button("Generate Analysis"):
                 # Fetch Market Data via yfinance
                 ticker = yf.Ticker(selected_stock)
 
-                # Disguise the request as a normal web browser
-                session = requests.Session()
-                session.headers.update({
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-                })
+                # Fetch Market Data via yfinance (letting the library handle the session natively)
+                ticker = yf.Ticker(selected_stock)
                 
                 # Fetch Market Data using the disguised session
                 ticker = yf.Ticker(selected_stock, session=session)
